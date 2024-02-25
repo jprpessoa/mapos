@@ -231,10 +231,10 @@ class Mine extends CI_Controller
                     log_info($_SERVER['REMOTE_ADDR'] . ' Efetuou login no sistema');
                     echo json_encode(['result' => true]);
                 } else {
-                    echo json_encode(['result' => false, 'message' => 'Os dados de acesso estão incorretos.']);
+                    echo json_encode(['result' => false, 'message' => 'Os dados de acesso estão incorretos.', 'MAPOS_TOKEN' => $this->security->get_csrf_hash()]);
                 }
             } else {
-                echo json_encode(['result' => false, 'message' => 'Usuário não encontrado, verifique se suas credenciais estão corretass.']);
+                echo json_encode(['result' => false, 'message' => 'Usuário não encontrado, verifique se suas credenciais estão corretass.', 'MAPOS_TOKEN' => $this->security->get_csrf_hash()]);
             }
         }
     }
@@ -707,6 +707,9 @@ class Mine extends CI_Controller
     // Cadastro de OS pelo cliente
     public function adicionarOs()
     {
+        if (!session_id() || !$this->session->userdata('conectado')) {
+            redirect('mine');
+        }
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('descricaoProduto', 'Descrição', 'required');
@@ -805,6 +808,8 @@ class Mine extends CI_Controller
 
         if ($this->form_validation->run('clientes') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
+        } elseif (strtolower($this->input->post('captcha')) != strtolower($this->session->userdata('captchaWord'))) {
+            $this->session->set_flashdata('error', 'Os caracteres da imagem não foram preenchidos corretamente!');
         } else {
             $data = [
                 'nomeCliente' => set_value('nomeCliente'),
@@ -834,12 +839,15 @@ class Mine extends CI_Controller
                 $this->session->set_flashdata('error', 'Falha ao realizar cadastro!');
             }
         }
-        $data = '';
-        $this->load->view('conecte/cadastrar', $data);
+
+        $this->load->view('conecte/cadastrar', $this->data);
     }
 
     public function downloadanexo($id = null)
     {
+        if (!session_id() || !$this->session->userdata('conectado')) {
+            redirect('mine');
+        }
         if ($id != null && is_numeric($id)) {
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos', 1)->row();
@@ -1027,6 +1035,25 @@ class Mine extends CI_Controller
             ];
             $this->email_model->add('email_queue', $email);
         }
+    }
+
+    public function captcha()
+    {
+        header("Content-type: image/jpeg");
+
+        $arrFont = ['font-ZXX_Noise.otf', 'font-karabine.ttf', 'font-capture.ttf', 'font-captcha.ttf'];
+        shuffle($arrFont);
+
+        $codigoCaptcha = substr(md5(time()) ,0, 7);
+        $img           = imagecreatefromjpeg('./assets/img/captcha_bg.jpg');
+        $corCaptcha    = imagecolorallocate($img, 255, 0, 0);
+        $font          = './assets/font-awesome/'.$arrFont[0];
+
+        imagettftext($img, 23, 0, 5, rand(30, 35), $corCaptcha, $font, $codigoCaptcha);
+        imagepng($img);
+        imagedestroy($img);
+
+        $this->session->set_userdata('captchaWord', $codigoCaptcha);
     }
 }
 

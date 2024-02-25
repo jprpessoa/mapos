@@ -91,7 +91,7 @@ class Github_updater
                             }
                         }
                         // Otherwise copy the file from the update.
-                        else {
+                        else {                            
                             copy($dir.'/'.$file->filename, $file->filename);
                         }
                     }
