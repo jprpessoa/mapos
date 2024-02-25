@@ -75,32 +75,13 @@
                                         <label for="descricaoProduto">
                                             <h4>Descrição Produto/Serviço</h4>
                                         </label>
-                                        <textarea class="span12 editor" name="descricaoProduto" id="descricaoProduto" cols="30" rows="5">
-
-                                            EQUIPAMENTO: ( ) Computador | ( ) Notebook | ( ) Impressora</br>
-                                            MARCA: ( ) DELL | ( ) HP | ( ) POSITIVO  | ( ) ACER | ( ) LENOVO | ( ) SAMSUNG | ( ) BROTHER | ( ) CANNON | OUTROS:  </br>
-                                            MODELO: </br>
-                                            COM CAREGADOR: ( ) ORIGINAL | ( ) GENÉRICO | ( ) NÃO APLICÁVEL</br>
-                                            COM BATERIA: ( ) SIM  ( ) NÃO ( ) NÃO APLICÁVEL
-                                            DETALHES: ( ) MOSSA | ( ) ARRANHÕES | (  )CARCAÇA QUEBRADA  
-
-                                        </textarea>
+                                        <textarea class="span12 editor" name="descricaoProduto" id="descricaoProduto" cols="30" rows="5"></textarea>
                                     </div>
                                     <div class="span6" style="padding: 1%; margin-left: 0">
                                         <label for="defeito">
                                             <h4>Defeito</h4>
                                         </label>
                                         <textarea class="span12 editor" name="defeito" id="defeito" cols="30" rows="5">
-                                            <ui>
-                                                <li>(  ) Não liga</li>
-                                                <li>(  ) Não exibe imagem</li>
-                                                <li>(  ) Lento / Travando</li>
-                                                <li>(  ) Teclado com defeito / Algumas teclas não funcionam </li>
-                                                <li>(  ) Tela com defeito</li>
-                                                <li>(  ) Verificação geral</li>
-                                                <li>(  ) Carcaça Quebrada</li>
-                                                <li>(  ) Outro defeito: 
-                                            </ui>
                                         </textarea>
                                     </div>
                                      <div class="span6" style="padding: 1%; margin-left: 0">
@@ -109,7 +90,7 @@
                                         </label>
                                         <textarea class="span12 editor" name="observacoes" id="observacoes" cols="30" rows="5">
 
-                                            SERÁ COBRADO UMA TAXA DE ORÇAMENTO DE R$30,OO CASO O CLIENTE <b>NÃO APROVE NENHUM SERVIÇO.</b><br>
+                                            SERÁ COBRADO UMA TAXA DE ORÇAMENTO DE R$35,OO CASO O CLIENTE <b>NÃO APROVE NENHUM SERVIÇO.</b><br>
                                             NÃO NOS RESPONSABILIZAMOS POR PERDA DE ARQUIVOS E/OU DEFEITOS NÃO INFORMADOS OU NÃO TESTADOS PELO CLIENTE.<br> 
                                             <b>LICENÇAS ATIVADAS NÃO SERÁ ACEITA DEVOLUÇÃO</b><br><br>
                                             <b>Formas de Pagamento:</b> Dinheiro, PIX, Cartão de Crédito e Débito<br>
