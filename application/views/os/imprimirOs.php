@@ -4,7 +4,7 @@ $totalProdutos = 0; ?>
 <html lang="pt-br">
 
 <head>
-    <title>Map_OS_<?php echo $result->idOs ?>_<?php echo $result->nomeCliente ?></title>
+    <title>Infocenter_<?php echo $result->idOs ?>_<?php echo $result->nomeCliente ?></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
@@ -93,6 +93,8 @@ $totalProdutos = 0; ?>
                                                     <?php if($emitente->cnpj != "00.000.000/0000-00") { ?><span class="icon"><i class="fas fa-fingerprint" style="margin:5px 1px"></i> <?php echo $emitente->cnpj; ?></span></br><?php } ?>
                                                     <span class="icon"><i class="fas fa-map-marker-alt" style="margin:4px 3px"></i><?php echo $emitente->rua . ', ' . $emitente->numero . ', ' . $emitente->bairro . ' - ' . $emitente->cidade . ' - ' . $emitente->uf; ?></span></br>
                                                     <span><span class="icon"><i class="fas fa-comments" style="margin:5px 1px"></i> E-mail: <?php echo $emitente->email . ' - Fone: ' . $emitente->telefone; ?></br>
+                                                    <i class="fas fa-globe" style="margin:5px 1px"></i>
+                                                    Site: https://www.infocenter.rec.br </br>    
                                                     <span class="icon"><i class="fas fa-user-check"></i> Responsável: <?php echo $result->nome ?>
                                                     <td style="width: 18%; text-align: center"><b>N° OS:</b> <span><?php echo $result->idOs ?></span></br></br><span>Emissão: <?php echo date('d/m/Y') ?></span></td></span>
 
@@ -135,7 +137,7 @@ $totalProdutos = 0; ?>
                                                     </ul>
                                                 </td>
 
-                                                <?php if ($result->status == 'Finalizado' || $result->status == 'Orçamento') { ?>
+                                                <?php if ($result->status != 'Finalizado') { ?>
                                                     <?php if ($qrCode) : ?>
                                                         <td style="width: 25%; padding: 0;text-align:center;">
                                                             <img style="margin:12px 0px 0px 0px" src="<?php echo base_url(); ?>assets/img/logo_pix.png" width="64px" alt="QR Code de Pagamento" /></br>
@@ -145,7 +147,12 @@ $totalProdutos = 0; ?>
                                                     <?php endif ?>
                                                 <?php } ?>
 
-                                            
+                                                <?php if ($result->status == 'Finalizado') { ?>    
+                                                    <td style="width: 15%; padding-left: 0">
+                                                        <!-- <img style="margin:12px 0px 2px 7px" src="<?php echo base_url(); ?>assets/img/logo_pix.png" width="64px" alt="QR Code de Pagamento" /> -->
+                                                        <img style="margin:50px 100px 20px 0px" src="<?php echo base_url(); ?>assets/img/carimbo_pago.png" alt="Carimbo de pago" width="90%" height="90%"></img>
+                                                    </td>
+                                                <?php } ?>                                            
                                             </tr>
                                         </tbody>
                                     </table>
