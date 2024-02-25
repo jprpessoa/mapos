@@ -30,7 +30,7 @@
             <div class="span2">
                 <select name="status" id="" class="span12">
                     <option value="">Selecione status</option>
-                    <option value="Aberto">Aberto</option>
+                    <option value="Pronta">Pronta</option>
                     <option value="Faturado">Faturado</option>
                     <option value="Negociação">Negociação</option>
                     <option value="Em Andamento">Em Andamento</option>
@@ -94,7 +94,7 @@
                                 }
 
                                 switch ($r->status) {
-                                    case 'Aberto':
+                                    case 'Pronta':
                                         $cor = '#00cd00';
                                         break;
                                     case 'Em Andamento':

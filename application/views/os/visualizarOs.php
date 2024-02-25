@@ -52,7 +52,9 @@
                                             <span style="font-size: 20px;"><?php echo $emitente->nome; ?></span></br>
                                             <?php if($emitente->cnpj != "00.000.000/0000-00") { ?><span class="icon"><i class="fas fa-fingerprint" style="margin:5px 1px"></i> <?php echo $emitente->cnpj; ?></span></br><?php } ?>
                                             <span class="icon"><i class="fas fa-map-marker-alt" style="margin:4px 3px"></i><?php echo $emitente->rua . ', ' . $emitente->numero . ', ' . $emitente->bairro . ' - ' . $emitente->cidade . ' - ' . $emitente->uf; ?></span></br>
-                                            <span class="icon"><i class="fas fa-comments" style="margin:5px 1px"></i> E-mail: <?php echo $emitente->email . ' - Fone: ' . $emitente->telefone; ?></span>
+                                            <span class="icon"><i class="fas fa-comments" style="margin:5px 1px"></i> E-mail: <?php echo $emitente->email . ' - Fone: ' . $emitente->telefone; ?></span><br>
+                                            <span class="icon"><i class="fas fa-globe" style="margin:5px 1px"></i>
+                                            Site: https://www.infocenter.rec.br</span>
                                         </td>
                                         <td style="width: 18%; text-align: center">
                                             <span><b>N° OS: </b><?php echo $result->idOs ?></span></br></br>
