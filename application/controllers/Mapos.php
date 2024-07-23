@@ -552,7 +552,7 @@ class Mapos extends MY_Controller {
         );
         $events = array_map(function ($os) {
             switch ($os->status) {
-                case 'Aberto':
+                case 'Pronta':
                     $cor = '#00cd00';
                     break;
                 case 'Negociação':

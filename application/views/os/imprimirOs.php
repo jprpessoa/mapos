@@ -6,7 +6,10 @@
 <html lang="pt-br">
 
 <head>
-    <title><?= $this->config->item('app_name') ?> - <?= $result->idOs ?> - <?= $result->nomeCliente ?></title>
+
+    <title>Infocenter_<?php echo $result->idOs ?>_<?php echo $result->nomeCliente ?></title>
+    <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap5.3.2.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome/css/font-awesome.css" />
@@ -196,6 +199,7 @@
                     </div>
                 <?php endif; ?>
 
+
                 <?php if ($totalProdutos != 0 || $totalServico != 0) : ?>
                     <div class="pagamento">
                         <div class="qrcode">
@@ -223,10 +227,13 @@
                                             <tr>
                                                 <td width="65%">SUBTOTAL</td>
                                                 <td>R$ <b><?= number_format($totalProdutos + $totalServico, 2, ',', '.') ?></b></td>
+
                                             </tr>
                                             <tr>
+
                                                 <td>DESCONTO</td>
                                                 <td>R$ <b><?= number_format($result->valor_desconto != 0 ? $result->valor_desconto - ($totalProdutos + $totalServico) : 0.00, 2, ',', '.') ?></b></td>
+
                                             </tr>
                                             <tr>
                                                 <td>TOTAL</td>

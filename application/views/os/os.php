@@ -30,15 +30,16 @@
             <div class="span2">
                 <select name="status" id="" class="span12">
                     <option value="">Selecione status</option>
-                    <option value="Aberto" <?=$this->input->get('status') == 'Aberto' ? 'selected' : ''?>>Aberto</option>
-                    <option value="Faturado" <?=$this->input->get('status') == 'Faturado' ? 'selected' : ''?>>Faturado</option>
-                    <option value="Negociação" <?=$this->input->get('status') == 'Negociação' ? 'selected' : ''?>>Negociação</option>
-                    <option value="Em Andamento" <?=$this->input->get('status') == 'Em Andamento' ? 'selected' : ''?>>Em Andamento</option>
-                    <option value="Orçamento" <?=$this->input->get('status') == 'Orçamento' ? 'selected' : ''?>>Orçamento</option>
-                    <option value="Finalizado" <?=$this->input->get('status') == 'Finalizado' ? 'selected' : ''?>>Finalizado</option>
-                    <option value="Cancelado" <?=$this->input->get('status') == 'Cancelado' ? 'selected' : ''?>>Cancelado</option>
-                    <option value="Aguardando Peças" <?=$this->input->get('status') == 'Aguardando Peças' ? 'selected' : ''?>>Aguardando Peças</option>
-                    <option value="Aprovado" <?=$this->input->get('status') == 'Aprovado' ? 'selected' : ''?>>Aprovado</option>
+                    <option value="Pronta">Pronta</option>
+                    <option value="Faturado">Faturado</option>
+                    <option value="Negociação">Negociação</option>
+                    <option value="Em Andamento">Em Andamento</option>
+                    <option value="Orçamento">Orçamento</option>
+                    <option value="Finalizado">Finalizado</option>
+                    <option value="Cancelado">Cancelado</option>
+                    <option value="Aguardando Peças">Aguardando Peças</option>
+                    <option value="Aprovado">Aprovado</option>
+
                 </select>
 
             </div>
@@ -94,7 +95,7 @@
                                 }
 
                                 switch ($r->status) {
-                                    case 'Aberto':
+                                    case 'Pronta':
                                         $cor = '#00cd00';
                                         break;
                                     case 'Em Andamento':
